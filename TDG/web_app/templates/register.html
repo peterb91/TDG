@@ -1,0 +1,115 @@
+{% extends "layout.html" %}
+{% block content %}
+<style>
+#register-page {
+    max-width: 700px;
+}
+ 
+.popup-background {
+    display: block;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-image: url("../static/background1.jpg");
+    background-size: cover;
+    padding-top: 60px;
+}
+ 
+.register-form{
+    margin: 5% auto 5% auto;
+    width: 90%;
+}
+ 
+.animate {
+    -webkit-animation: animatezoom 0.8s;
+    animation: animatezoom 0.8s
+}
+ 
+@-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)}
+    to {-webkit-transform: scale(1)}
+}
+ 
+@keyframes animatezoom {
+    from {transform: scale(0)}
+    to {transform: scale(1)}
+}
+</style>
+<div id="div_reg" class="popup-background">
+    <div id="register-page" class="row animate">
+        <div class="col s12 z-depth-6 card-panel">
+            <form class="register-form" action="{{ url_for('register') }}" method="post">
+              <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                <a id="exit_btn" style="color: black;" href="{{ url_for('index') }}"><i class="close material-icons right text">close</i></a>
+                <h4 class="center">TDG Registration Form</h4>
+                <div class="row margin">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">account_circle</i>
+                        <input id="user_name" name="login" type="text" class="validate" pattern=".{4,15}" required="">
+                        <label for="user_name" class="center-align" data-error="username should have 4-15 characters">Username</label>
+                    </div>
+                </div>
+                <div class="row margin">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">email</i>
+                        <input id="user_email" name="email" type="email" class="validate" required="">
+                        <label for="user_email" class="center-align" data-error="invalid email address">Email</label>
+                    </div>
+                </div>
+                <div class="row margin">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">lock_outline</i>
+                        <input id="user_passw" name="password" type="password" class="validate" pattern=".{6,15}" required="">
+                        <label for="user_passw" data-error="password should have 6-15 characters">Password</label>
+                    </div>
+                </div>
+                <div class="row margin">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">lock_open</i>
+                        <input id="confirm_pass" name="confirm_password" type="password" class="validate" pattern=".{6,15}" required="">
+                        <label for="confirm_pass">Re-type password</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <button type="submit" class="btn btn-large waves-effect waves-light col s12">Register</button>
+                    </div>
+                    <div class="input-field col s12">
+                        <p class="margin center medium-small sign-up">Already have an account? <a href="{{ url_for('login') }}">Login now!</a></p>
+                        {% block register_message %}
+
+                        {% endblock %}
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    // Get the popup window.
+    var popupReg = document.getElementById('div_reg');
+ 
+    // When the user clicks anywhere outside of the popup window, close it.
+    window.onclick = function(event) {
+        if (event.target == popupReg) {
+        document.getElementById('exit_btn').click();
+        }
+    }
+
+    // Validate if confirmation password matches password.
+    $(document).ready(function () {
+        $("#confirm_pass").change(function () {
+            if (document.getElementById('confirm_pass').value != document.getElementById('user_passw').value) {
+                document.getElementById('confirm_pass').setCustomValidity("Passwords don't match.");
+            } else {
+                // input is valid -- reset the error message
+                document.getElementById('confirm_pass').setCustomValidity('');
+            }
+        });
+    });
+</script>
+{% endblock %}

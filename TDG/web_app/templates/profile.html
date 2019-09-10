@@ -1,0 +1,96 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+        <div class="container">
+            <br>
+            <br>
+            <h1 class="header center teal-text text-lighten-2">
+                Test Data Generator
+            </h1>
+
+            <div class="row center">
+                <p style="font-size:200%;" class="center-align white-text text-lighten-20">
+                    User administration panel
+                </p>
+            </div>
+
+            <br>
+            <br>
+
+        </div>
+    </div>
+
+    <div class="parallax">
+        <img src="{{ url_for('static', filename='background1.jpg') }}" alt="Unsplashed background img 1">
+    </div>
+
+</div>
+
+<img src="{{ url_for('static', filename='default-image.jpg') }}" class="main-avatar">
+
+<div class="container">
+
+    <div id="mySidenav" class="sidenav">
+        <a href="#" id="home">
+            Main page
+        </a>
+        <a href="#" id="hist">
+            History
+        </a>
+
+        <a id="pas">
+            <div class="popup" onclick="myFunction('pasPop', 'pas')">
+                Change password
+                <span class="popuptext" id="pasPop">
+                    Change password option!
+                </span>
+            </div>
+        </a>
+        <a id="mail">
+            <div class="popup" onclick="myFunction('mailPop', 'mail')">
+            Change e-mail
+            <span class="popuptext" id="mailPop">
+                Change mail option!
+            </span>
+            </div>
+        </a>
+        <a href="#" id="del">
+            Delete account
+        </a>
+    </div>
+
+    <div class="section">
+
+        <!--   Icon Section   -->
+        <div class = "center-align">
+            <h2>
+                <strong>Welcome {{ current_user.name }}!</strong>
+            </h2>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class = "right-align">
+            <h4>
+                Last login:
+            </h4>
+            <br>
+            <h5>
+                <b>IP:</b> No IP saved
+            </h5>
+            <h5>
+                <b>Date:</b> No date saved
+            </h5>
+        </div>
+
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+{% endblock %}

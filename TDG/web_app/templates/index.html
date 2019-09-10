@@ -1,0 +1,115 @@
+{% extends "layout.html" %}
+{% block content %}
+<div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+        <div class="container">
+            <br>
+            <br>
+
+            <h1 class="header center teal-text text-lighten-2">
+                Test Data Generator
+            </h1>
+            <div class="row center">
+                <p style="font-size:200%;" class="center-align white-text text-lighten-20">
+                    The only one you will ever need
+                </p>
+            </div>
+            <div class="row center">
+                <a href="#main" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">
+                    Get Started
+                </a>
+            </div>
+
+            <br>
+            <br>
+
+        </div>
+    </div>
+
+    <div class="parallax">
+        <img src="{{ url_for('static', filename='background1.jpg') }}" alt="Unsplashed background img 1">
+    </div>
+
+</div>
+
+<div class="container">
+    <div class="section">
+
+        <!--   Icon Section   -->
+
+        <div class="row">
+            <div class="col s12 m4">
+                <div class="icon-block">
+                    <h2 class="center brown-text">
+                        <i class="material-icons">flash_on</i>
+                    </h2>
+                    <h5 class="center">
+                        Speeds up development
+                    </h5>
+
+                    <p class="light">
+                        This fantastic data generator lets you test your webpage in no time.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col s12 m4">
+                <div class="icon-block">
+                    <h2 class="center brown-text">
+                        <i class="material-icons">group</i>
+                    </h2>
+                    <h5 class="center">
+                        User Experience Focused
+                    </h5>
+
+                    <p class="light">
+                        Built using well known parallax template - the one you know and have seen million times before!
+                    </p>
+                </div>
+            </div>
+
+            <div class="col s12 m4">
+                <div class="icon-block">
+                    <h2 class="center brown-text">
+                        <i class="material-icons">settings</i>
+                    </h2>
+                    <h5 class="center">
+                        Easy to use anytime you want
+                    </h5>
+                    <p class="light">
+                        Just type in your data, press a button and your file is ready to be downloaded!
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="section">
+        <div id="main">
+            <div class="row">
+                <div class="col s12 center">
+                    <h3>
+                        <i class="mdi-content-send brown-text"></i>
+                    </h3>
+                    <h4>
+                        Data generation
+                    </h4>
+                    <p class="left-align light">
+                        You can generate random logins and passwords with the same or different constraints. To proceed,
+                        please select an option:
+                    </p>
+                    <a class="waves-effect waves-light btn-large" href="{{ url_for('same') }}">
+                        The same constraints
+                    </a>
+                    <a class="waves-effect waves-light btn-large" href="{{ url_for('different') }}">
+                        Different constrains
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

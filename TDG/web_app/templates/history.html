@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+{% block content %}
+<div>
+    <table border="1" style="table">
+
+        <tr>
+            <th>File ID</th>
+            <th>User ID</th>
+            <th>No of records</th>
+            <th>Ratio</th>
+            <th>Headers</th>
+            <th>Login min length</th>
+            <th>Login max length</th>
+            <th>Login special characters</th>
+            <th>Password min length</th>
+            <th>Password max length</th>
+            <th>Password special characters</th>
+            <th>File type</th>
+            <th>Creation date</th>
+            <th>Download file</th>
+
+        </tr>
+        {% for i in range(value[1]) %}
+            <tr>
+                <td>{{value[0][i].file_id}}</td>
+                <td>{{value[0][i].user_id}}</td>
+                <td>{{value[0][i].records_no}}</td>
+                <td>{{value[0][i].ratio}}</td>
+                <td>{{value[0][i].headers}}</td>
+                <td>{{value[0][i].login_min_length}}</td>
+                <td>{{value[0][i].login_max_length}}</td>
+                <td>{{value[0][i].login_textarea_custom}}</td>
+                <td>{{value[0][i].pass_min_length}}</td>
+                <td>{{value[0][i].pass_max_length}}</td>
+                <td>{{value[0][i].pass_textarea_custom}}</td>
+                <td>{{value[0][i].file_extension}}</td>
+                <td>{{value[0][i].created_at}}</td>
+                <td>
+                    <a href="{{ url_for('static', filename=(value[0][i].file_path)) }}" download>Download file</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

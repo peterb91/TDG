@@ -1,0 +1,282 @@
+.popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* The actual popup */
+.popup .popuptext {
+    visibility: hidden;
+    width: 160px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    top: -15px;
+    left: 260px;
+    margin-left: -80px;
+}
+
+
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+}
+
+
+#mySidenav a{
+    position: absolute; /* Position them relative to the browser window */
+    left: -12px; /* Position them outside of the screen */
+    transition: 0.3s; /* Add transition on hover */
+    padding: 15px; /* 15px padding */
+    width: 190px; /* Set a specific width */
+    text-decoration: none; /* Remove underline */
+    font-size: 20px; /* Increase font size */
+    color: white; /* White text color */
+    border-radius: 0 5px 5px 0; /* Rounded corners on the top right and bottom right side */
+}
+
+#mySidenav .stay{
+    left: 0;
+}
+
+#mySidenav a:hover{
+    left: 0; /* On mouse-over, make the elements appear as they should */
+}
+
+/* The about link: 20px from the top with a green background */
+#home{
+    top: 624px;
+    background-color: #29a69a;
+}
+
+#hist{
+    top: 684px;
+    background-color: #6187a4;
+}
+
+#pas{
+    top: 744px;
+    background-color: #6a649d;
+}
+
+#mail{
+    top: 804px;
+    background-color: #8c6896
+}
+
+#del{
+    top: 864px;
+    background-color: #a9a9a9
+}
+
+.main-avatar{
+    border-color: #8c6896;
+    border-style: groove;
+    border-width: 2px;
+    position: absolute; /* Position them relative to the browser window */
+    top: 459px;
+    left: 6px; /* Position them outside of the screen */
+
+    width: 160px; /* Set a specific width */
+    border-radius: 0 5px 5px 0; /* Rounded corners on the top right and bottom right side */
+
+}
+
+.right-align{
+    text-align: right;
+
+}
+
+.descr{
+    text-align: justify;
+    font-weight: 3000;
+}
+
+.hvr-grow-shadow{
+    border-style: groove;
+    border-width: 2px;
+    text-align: center;
+    margin: auto;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px transparent;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: box-shadow, transform;
+    transition-property: box-shadow, transform;
+}
+
+.hvr-grow-shadow:hover, .hvr-grow-shadow:focus, .hvr-grow-shadow:active{
+    box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+.teal{
+    border-color: #29a69a;
+}
+
+.teal:hover{
+    border-color: #8c6896;
+}
+
+.violet{
+    border-color: #8c6896;
+}
+
+.violet:hover{
+    border-color: #29a69a;
+}
+
+.bordered-img{
+    border-style: groove;
+    border-color: #29a69a;
+    border-width: 2px;
+}
+
+.smallcenter{
+    text-align: center;
+    margin: auto;
+    width: 400px;
+}
+
+.topnav{
+    background-color: white;
+    overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a{
+    float: right;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 30px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover{
+    background-color: #26a69a;
+    opacity: 0.8;
+    border:1px solid teal-lighten;
+    color: white;
+}
+
+/* Hide the link that should open and close the topnav on small screens */
+.topnav .icon{
+    display: none;
+}
+
+
+
+nav ul a, nav .brand-logo{
+    color: #444;
+}
+
+span{
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+}
+
+p{
+    line-height: 2rem;
+}
+
+.button-collapse{
+    color: #26a69a;
+}
+
+.parallax-container{
+    min-height: 380px;
+    line-height: 0;
+    height: auto;
+    color: black;
+    display: flex;
+    align-content: center;
+    justify-content : center;
+}
+
+.parallax-container .section{
+    width: 100%;
+}
+
+@media only screen and(max-width: 992px){
+
+    .parallax-container .section{
+        vertical-align: middle;
+        position: absolute;
+        top: 40%;
+    }
+
+    #index-banner .section{
+        top: 10%;
+        display: flex;
+        align-content: center;
+        justify-content : center;
+    }
+
+}
+
+@media only screen and(max-width: 600px){
+
+    #index-banner .section{
+        top: 0;
+        display: flex;
+        align-content: center;
+        justify-content : center;
+    }
+
+}
+
+.icon-block{
+    padding: 0 15px;
+}
+
+.icon-block .material-icons{
+    font-size: inherit;
+}
+
+footer.page-footer{
+    margin: 0;
+}
+
+table{
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th{
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){
+    background-color: #dddddd;
+}

@@ -1,0 +1,27 @@
+[[source]]
+verify_ssl = true
+url = "https://pypi.python.org/simple"
+
+[dev-packages]
+
+pytest = "*"
+"pytest-cov" = "*"
+"flake8-builtins" = "*"
+"flake8-commas" = "*"
+"flake8-quotes" = "*"
+"pytest-flake8" = "*"
+"pytest-mock" = "*"
+pylint = "*"
+freezegun = "*"
+sphinx = "*"
+
+
+[packages]
+
+flask = "*"
+gunicorn = "*"
+passlib = "*"
+"flask-sqlalchemy" = "*"
+"flask-wtf" = "*"
+"flask-login" = "*"
+bcrypt = "*"

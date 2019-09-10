@@ -1,0 +1,188 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+        <div class="container">
+            <h1 class="header center teal-text text-lighten-2">
+                Test Data Generator
+            </h1>
+            <p style="font-size:200%;" class="center-align white-text text-lighten-20">
+                Different constraints for login and password
+            </p>
+        </div>
+    </div>
+    <div class="parallax">
+        <img src="{{ url_for('static', filename='background1.jpg') }}" alt="Unsplashed background img 1">
+    </div>
+</div>
+
+<div class="container">
+    <div class="section">
+        <div class="row">
+            <form class="col s12" action="{{ url_for('handle_data') }}" method="post" id="different">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                <p class="center-align">
+                    <b>Login constraints:</b>
+                </p>
+
+                <!--LOGIN MIN MAX SLIDER -->
+                <div class="row">
+                    <div class="center-align">
+                        <label for="amount">Length range</label>
+                        <br>
+                        <br>
+                        <input type="hidden" name="amount" id="amount"
+                               readonly style="border:0; color:#26a69a; font-weight:bold; text-align: center;">
+                    </div>
+                    <div id="slider-range">
+                        <div id="custom-handleMinLog" class="ui-slider-handle"></div>
+                        <div id="custom-handleMaxLog" class="ui-slider-handle"></div>
+                    </div>
+                    <div>
+                        {{ form.login_min_length(class="validate", type="hidden")}}
+                        {{ form.login_max_length(class="validate", type="hidden")}}
+                    </div>
+                </div>
+                <br>
+
+                <!--LOGIN SPECIALS -->
+                <div class="row">
+                    <div class="center-align">
+                        {{ form.login_special_char.label }}
+                        <br>
+                        {% for subfield in form.login_special_char %}
+                        <tr>
+                            <td>{{ subfield }}</td>
+                            <td>{{ subfield.label }}</td>
+                        </tr>
+                        {% endfor %}
+                        <!--LOGIN TEXAREA CUSTOM -->
+                        <div class="row">
+                            <form class="col s12">
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        {{ form.login_textarea_custom(style="display: none;",
+                                        class="materialize-textarea", placeholder="Enter special characters here" ) }}
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <p class="center-align">
+                        <b>Password constraints:</b>
+                    </p>
+
+                    <!--PASS MIN MAX SLIDER -->
+                    <div class="row">
+                        <div class="center-align">
+                            <label for="amount">Length range</label>
+                            <br>
+                            <br>
+                            <input type="hidden" name="amountPas" id="amountPas"
+                                   readonly style="border:0; color:#26a69a; font-weight:bold; text-align: center;">
+                        </div>
+                        <div id="slider-range-pas">
+                            <div id="custom-handleMinPas" class="ui-slider-handle"></div>
+                            <div id="custom-handleMaxPas" class="ui-slider-handle"></div>
+                        </div>
+                        <div>
+                            {{ form.pass_min_length(class="validate", type="hidden")}}
+                            {{ form.pass_max_length(class="validate", type="hidden")}}
+                        </div>
+                    </div>
+                    <br>
+
+                    <!--PASS SPECIALS -->
+                    <div class="row">
+                        <div class="center-align">
+                            {{ form.pass_special_char.label }}
+                            <br>
+                            {% for subfield in form.pass_special_char %}
+                            <tr>
+                                <td>{{ subfield }}</td>
+                                <td>{{ subfield.label }}</td>
+                            </tr>
+                            {% endfor %}
+                            <!--PASS TEXAREA CUSTOM -->
+                            <div class="row">
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        {{ form.pass_textarea_custom(style="display: none;",
+                                        class="materialize-textarea", placeholder="Enter special characters here" ) }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p class="center-align">
+                            <b>Basic settings:</b>
+                        </p>
+
+                        <!--NO OF RECORDS -->
+                        <p class="smallcenter">
+                            {{ form.records_no.label }} {{ form.records_no(class="validate", type="number", min="1",
+                            max="1000", step="1", required="required", style="text-align: center") }}
+                        </p>
+                        <!--RATIO -->
+                        <p class="center-align">
+                            {{ form.ratio.label }}
+                            {{ form.ratio(class="validate", type="hidden", step=1, required="required") }}
+                        </p>
+                        <div id="slider" class="center-align">
+                            <div id="custom-handle" class="ui-slider-handle"></div>
+                        </div>
+                        <br>
+                        <br>
+                        <!--HEADERS -->
+                        <p class="center-align">
+                            {{ form.headers.label }}
+                            {% for subfield in form.headers %}
+                            <tr>
+                                <td>{{ subfield(class="validate", required="required") }}</td>
+                                <td>{{ subfield.label }}</td>
+                            </tr>
+                            {% endfor %}
+                        </p>
+                        <input type="hidden" name="different_form" id="different_form" value="different_form" readonly>
+                        <br>
+                        <br>
+                        <div class="center-align">
+                            <button onclick="takeFromSlider('amount','login_min_length','login_max_length');
+                                takeFromSlider('amountPas','pass_min_length','pass_max_length')"
+                                    class="btn waves-effect waves-light" type="submit" name="txt">
+                                Generate TXT file
+                                <i class="material-icons right">
+                                    send
+                                </i>
+                            </button>
+
+                            <button onclick="takeFromSlider('amount','login_min_length','login_max_length');
+                                takeFromSlider('amountPas','pass_min_length','pass_max_length')"
+                                    class="btn waves-effect waves-light" type="submit" name="csv">
+                                Generate CSV file
+                                <i class="material-icons right">
+                                    send
+                                </i>
+                            </button>
+                        </div>
+                    </div>
+            </form>
+
+            <div class="center-align">
+                <button class="btn waves-effect waves-light" id="export_btn" name="export_btn"
+                        style="background-color: #A9A9A9">
+                    Export config set
+                </button>
+                <input class="btn waves-effect waves-light" id="import_btn" type="file" accept="text/plain" onchange=""
+                       name="import_btn" style="visibility:hidden; background-color: #A9A9A9;">
+                <label for="import_btn" class="btn waves-effect waves-light" style="background-color: #A9A9A9">
+                    Import config set
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

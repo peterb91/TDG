@@ -1,0 +1,250 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+        <div class="container">
+            <br><br>
+            <h1 class="header center teal-text text-lighten-2">Test Data Generator</h1>
+            <div class="row center">
+                <p style="font-size:200%;" class="center-align white-text text-lighten-20">About our team</p>
+            </div>
+            <br><br>
+
+        </div>
+    </div>
+    <div class="parallax"><img src="{{ url_for('static', filename='background1.jpg') }}"
+                               alt="Unsplashed background img 1"></div>
+</div>
+<br>
+<br>
+<div class="container">
+    <div class="section">
+        <!--   Icon Section   -->
+        <div class="row">
+            <div class="col s12 m4">
+                <div class="icon-block">
+                    <div class="center-align">
+                        <img class="hvr-grow-shadow teal" src="{{ url_for('static', filename='PiB.jpg') }}"
+                             height="128" width="128"
+                             onmouseover="this.src='{{ url_for('static', filename='PiB2.jpg') }}';"
+                             onmouseout="this.src='{{ url_for('static', filename='PiB.jpg') }}';">
+                    </div>
+                    <h5 class="center">
+                        Piotr Bednarz
+                    </h5>
+                    <p class="descr">
+                        Funny, well-spoken guy, who sometimes forgets about small details (e.g. colons), but he is
+                        always there to set things straight. He is also “great” table soccer player…
+                    </p>
+                </div>
+            </div>
+
+            <div class="col s12 m4">
+                <div class="icon-block">
+                    <div class="center-align">
+                        <img src="{{ url_for('static', filename='SB.jpg') }}" height="128" width="128"
+                             class="hvr-grow-shadow violet"
+                             onmouseover="this.src='{{ url_for('static', filename='SB2.jpg') }}';"
+                             onmouseout="this.src='{{ url_for('static', filename='SB.jpg') }}';">
+                    </div>
+                    <h5 class="center">
+                        Szymon Bieniek
+                    </h5>
+                    <p class="descr">
+                        The bushiest beard in our team. Instinctive dancer. Though he seems as gentle as a lamb
+                        he is witty and ironic (of what proof you have got in this section he was responsible for).
+                    </p>
+                </div>
+            </div>
+
+            <div class="col s12 m4">
+                <div class="icon-block">
+                    <div class="center-align">
+                        <img src="{{ url_for('static', filename='PaB.jpg') }}" height="128" width="128"
+                             class="hvr-grow-shadow teal"
+                             onmouseover="this.src='{{ url_for('static', filename='PaB2.jpg') }}';"
+                             onmouseout="this.src='{{ url_for('static', filename='PaB.jpg') }}';">
+                    </div>
+                    <h5 class="center">
+                        Patryk Bogusz
+                    </h5>
+                    <p class="descr">
+                        If there is something that blockchain isn’t used yet for, he will try to change it.
+                        He is a very friendly and kind guy, but a Muay Thai fighter at the same time!
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s12 m4">
+                <div class="icon-block">
+                    <div class="center-align">
+                        <img src="{{ url_for('static', filename='PB.jpg') }}" height="128" width="128"
+                             class="hvr-grow-shadow violet"
+                             onmouseover="this.src='{{ url_for('static', filename='PB2.jpg') }}';"
+                             onmouseout="this.src='{{ url_for('static', filename='PB.jpg') }}';">
+                    </div>
+                    <h5 class="center">
+                        Patrycja Brzeska
+                    </h5>
+                    <p class="descr">
+                        The only person here with appropriate qualifications and our Scrum Master. She is crazy about
+                        alpacas, she even resembles one!
+                    </p>
+                </div>
+            </div>
+
+            <div class="col s12 m4">
+                <div class="icon-block">
+                    <div class="center-align">
+                        <img src="{{ url_for('static', filename='TB.jpg') }}" height="128" width="128"
+                             class="hvr-grow-shadow teal"
+                             onmouseover="this.src='{{ url_for('static', filename='TB2.jpg') }}';"
+                             onmouseout="this.src='{{ url_for('static', filename='TB.jpg') }}';">
+                    </div>
+                    <h5 class="center">
+                        Teresa Bury
+                    </h5>
+                    <p class="descr">
+                        Calm and very quiet person you cannot dislike. Pay attention to what she says as it might
+                        be a hidden gem that can be easily drowned out by nearby fly.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col s12 m4">
+                <div class="icon-block">
+                    <div class="center-align">
+                        <img src="{{ url_for('static', filename='MC.jpg') }}" height="128" width="128"
+                             class="hvr-grow-shadow violet"
+                             onmouseover="this.src='{{ url_for('static', filename='MC2.jpg') }}';"
+                             onmouseout="this.src='{{ url_for('static', filename='MC.jpg') }}';">
+                    </div>
+                    <h5 class="center">
+                        Michał Cieślar
+                    </h5>
+                    <p class="descr">
+                        Mastermind of our project. Sometimes it is hard to get his attention but he always finds
+                        solution for your problem.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s12 m4">
+                <div class="icon-block">
+                    <div class="center-align">
+                        <img src="{{ url_for('static', filename='KF.jpg') }}" height="128" width="128"
+                             class="hvr-grow-shadow teal"
+                             onmouseover="this.src='{{ url_for('static', filename='KF2.jpg') }}';"
+                             onmouseout="this.src='{{ url_for('static', filename='KF.jpg') }}';">
+                    </div>
+                    <h5 class="center">
+                        Katarzyna Fedevych
+                    </h5>
+                    <p class="descr">
+                        Our silent hero, hardworking person you definitely want in your team.
+                        Very useful while playing “Mafia” game, as she is calm, merciless killer!
+                    </p>
+                </div>
+            </div>
+
+            <div class="col s12 m4">
+                <div class="icon-block">
+                    <div class="center-align">
+                        <img src="{{ url_for('static', filename='MG.jpg') }}" height="128" width="128"
+                             class="hvr-grow-shadow violet"
+                             onmouseover="this.src='{{ url_for('static', filename='MG2.jpg') }}';"
+                             onmouseout="this.src='{{ url_for('static', filename='MG.jpg') }}';">
+                    </div>
+                    <h5 class="center">
+                        Mateusz Graboń
+                    </h5>
+                    <p class="descr">
+                        The most honest guy you will ever meet. Not sure if virtue or flaw.
+                        Be cautious when working with him, he deploys releases of his own!
+                    </p>
+                </div>
+            </div>
+
+            <div class="col s12 m4">
+                <div class="icon-block">
+                    <div class="center-align">
+                        <img src="{{ url_for('static', filename='KG.jpg') }}" height="128" width="128"
+                             class="hvr-grow-shadow teal"
+                             onmouseover="this.src='{{ url_for('static', filename='KG2.jpg') }}';"
+                             onmouseout="this.src='{{ url_for('static', filename='KG.jpg') }}';">
+                    </div>
+                    <h5 class="center">
+                        Katarzyna Grzywacz
+                    </h5>
+                    <p class="descr">
+                        Are you thirsty and looking for companion? How about some crazy stories? Or maybe
+                        a piano lesson? Just team up with Kasia and you have all in one!
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col s12 m4">
+                <div class="icon-block">
+                    <div class="center-align">
+                        <img src="{{ url_for('static', filename='WJ.jpg') }}" height="128" width="128"
+                             class="hvr-grow-shadow violet"
+                             onmouseover="this.src='{{ url_for('static', filename='WJ2.jpg') }}';"
+                             onmouseout="this.src='{{ url_for('static', filename='WJ.jpg') }}';">
+                    </div>
+                    <h5 class="center">
+                        Wojciech Jaszcz
+                    </h5>
+                    <p class="descr">
+                        Man of hundreds talents and achievements, and yet, the most difficult task was still about to
+                        come. Has he succeeded? Has he managed to change us into testers/developers?
+                    </p>
+                </div>
+            </div>
+            <div class="col s12 m4">
+                <div class="icon-block">
+                    <div class="center-align">
+                        <img src="{{ url_for('static', filename='DR.jpg') }}" height="128" width="128"
+                             class="hvr-grow-shadow teal"
+                             onmouseover="this.src='{{ url_for('static', filename='DR2.jpg') }}';"
+                             onmouseout="this.src='{{ url_for('static', filename='DR.jpg') }}';">
+                    </div>
+                    <h5 class="center">
+                        Daria Radoszewska
+                    </h5>
+                    <p class="descr">
+                        Definitely the most project-wise, experienced person in our team, she is always there to give
+                        you an advice. Oh, and she also jumps, dances, or something in between.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col s12 m4">
+                <div class="icon-block">
+                    <div class="center-align">
+                        <img src="{{ url_for('static', filename='AS.jpg') }}" height="128" width="128"
+                             class="hvr-grow-shadow violet"
+                             onmouseover="this.src='{{ url_for('static', filename='AS2.jpg') }}';"
+                             onmouseout="this.src='{{ url_for('static', filename='AS.jpg') }}';">
+                    </div>
+                    <h5 class="center">
+                        Aleksandra Sucharska
+                    </h5>
+                    <p class="descr">
+                        Japanese? Check. Car chip tuning? Check. Aikido? Check. Testing software? Check.
+                        Is there something this girl cannot do?
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

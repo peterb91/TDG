@@ -1,0 +1,93 @@
+{% extends "layout.html" %}
+{% block content %}
+<style>
+#login-page {
+    max-width: 700px;
+}
+
+.popup-background {
+    display: block;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-image: url("../static/background1.jpg");
+    background-size: cover;
+    padding-top: 60px;
+}
+
+.login-form {
+    margin: 5% auto 5% auto;
+    width: 90%;
+}
+
+.animate {
+    -webkit-animation: animatezoom 0.8s;
+    animation: animatezoom 0.8s
+}
+
+@-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)}
+    to {-webkit-transform: scale(1)}
+}
+
+@keyframes animatezoom {
+    from {transform: scale(0)}
+    to {transform: scale(1)}
+}
+</style>
+<div id="div_log" class="popup-background">
+    <div id="login-page" class="row animate">
+        <div class="col s12 z-depth-6 card-panel">
+          <form class="login-form" action="{{ url_for('login') }}" method="POST">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+              <a id="exit_btn" style="color: black;" href="{{ url_for('index') }}"><i class="close material-icons right text">close</i></a>
+              <h4 class="center">TDG Login Form</h4>
+                <div class="row">
+                </div>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <i class="material-icons prefix">account_circle</i>
+                    <input class="validate" pattern=".{4,15}" required="" id="username" name="login" type="text">
+                    <label for="username" data-error="username should have 4-15 characters">Username</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <i class="material-icons prefix">lock_outline</i>
+                    <input id="password" type="password" name="password" pattern=".{6,15}" class="validate" required="">
+                    <label for="password" data-error="password should have 6-15 characters">Password</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <button type="submit" class="btn btn-large waves-effect waves-light col s12">Login</button>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12 m12 l12">
+                    <p class="margin center medium-small">Do not have an account yet? <a href="{{ url_for('register') }}">Register Now!</a></p>
+                    {% block login_message %}
+
+                    {% endblock %}
+                  </div>
+                </div>
+          </form>
+        </div>
+    </div>
+</div>
+<script>
+    // Get the popup
+    var popupLog = document.getElementById('div_log');
+ 
+    // When the user clicks anywhere outside of the popup window, close it
+    window.onclick = function(event) {
+        if (event.target == popupLog) {
+        document.getElementById('exit_btn').click();
+        }
+    }
+</script>
+{% endblock %}
